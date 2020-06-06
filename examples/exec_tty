@@ -34,6 +34,7 @@ import sys
 import termios
 import time
 import tty
+import subprocess
 
 import six
 
@@ -267,3 +268,5 @@ i = Interceptor(k8s_stream=resp)
 i.write_stdout('Now in pty mode.\r\n')
 i.spawn(sys.argv[1:])
 i.write_stdout('\r\nThe pty mode is over.\r\n')
+subprocess.run(["/usr/bin/reset"])
+
